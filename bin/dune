@@ -1,0 +1,6 @@
+(executable
+ (public_name examples)
+ (name main)
+ (libraries examples)
+ (flags (:standard -w -27 -w -32 -w -37 -w -50))
+ )
