@@ -62,15 +62,22 @@ let expr2graph (e: expr): graph =
 
 (* not covered in class. Pay attention to how List.map is used *)
 let graph2str (g: graph): string =
-  let open Printf in (* use (f/s)printf functions without "Printf." inside graph2str *)
+  let open Printf in (* use sprintf without "Printf." inside graph2str *)
   let node2str (n: node) = sprintf "  %s [label=\"%s\"];" (fst n) (snd n) in
   let nodes = String.concat "\n" (List.map node2str g.nodes) in
+  (* you can pattern-match on tuples and records arguments directly *)
   let edge2str ((n1, n2): edge) = sprintf "  %s -> %s;" n1 n2 in
   let edges = String.concat "\n" (List.map edge2str g.edges) in
   sprintf "digraph AST {\n%s\n%s\n}" nodes edges
+ 
   
+let _ = 
+  Printf.printf "Task 1:\n%s\n" (tree2str my_expr)
 
+let _ = print_newline (); print_newline ()
+  
 let _ =
+  Printf.printf "Task2:\n";
   let g = expr2graph my_expr in
   let s = graph2str g in
   let oc = open_out "graph.dot" in
@@ -78,3 +85,8 @@ let _ =
   close_out oc;
   let r = Sys.command "dot -Tpng graph.dot -o graph.png" in
   Printf.printf "Exit code of dot: %d\n" r
+
+(** 
+  You should be able to run this code with
+  dune exec bin/main.exe
+*)
