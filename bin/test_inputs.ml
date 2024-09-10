@@ -1,9 +1,10 @@
-(* An initial representation of the program. For assignment 2, it'd be eprog *)
+(* An initial representation of the program. For assignment 2, it'd be eprog.
+   In our example, this is a trivial type, so "compilation" does nothing *)
 type prog = unit
 
 
 (* Compile the given program into file with given path.
-   For assignment 2, it'd be the .s file *)
+   For assignment 2, it'd be production of .s file with assembly representation of eprog *)
 let compile (_: prog) (compiled_path: string) = 
     let r = Sys.command (Printf.sprintf "cp input_sum.c %s" compiled_path) in
     if r = 0 then () else failwith "Not compiled"
