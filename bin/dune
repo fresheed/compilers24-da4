@@ -17,3 +17,9 @@
 (install 
     (section bin)    
     (files (benchmarks.exe as envbench)))
+
+(executable
+ (name test_inputs)
+ (public_name test_inputs)
+ (libraries examples unix)
+)
