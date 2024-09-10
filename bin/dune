@@ -7,3 +7,13 @@
  ; Here I suppress the "unused constructor" warning since Div and Sub operations are not present in example I was using
  (flags (:standard -w -37))
  )
+
+(executable
+ (name benchmarks)
+ (public_name benchmarks)
+ (libraries examples core core_bench core_unix.command_unix)
+)
+
+(install 
+    (section bin)    
+    (files (benchmarks.exe as envbench)))
