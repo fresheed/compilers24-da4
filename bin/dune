@@ -22,4 +22,26 @@
  (name test_inputs)
  (public_name test_inputs)
  (libraries examples unix)
+ (flags (:standard -w -33 -w -32 -w -27 -w -38 -w -37))
+)
+
+(executable
+ (name add_sub)
+ (public_name add_sub)
+ (libraries examples unix)
+(flags (:standard -w -33 -w -32 -w -27 -w -38))
+)
+
+(executable
+ (name cfg_builder_use)
+ (public_name cfg_builder_use)
+ (libraries examples unix)
+(flags (:standard -w -33 -w -32))
+)
+
+(executable
+ (name hashtags)
+ (public_name hashtags)
+ (libraries lexparse unix)
+ (flags (:standard -w -33 -w -32))
 )
